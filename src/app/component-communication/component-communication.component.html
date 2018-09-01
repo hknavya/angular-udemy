@@ -1,0 +1,89 @@
+<div class="container m-t-15">
+	<div class="row">
+
+		<app-comp-comm-add-form 
+			(serverCreated)="onServerAdded($event)"
+			(blueprintCreated)="onBlueprintAdded($event)"
+		>	
+		</app-comp-comm-add-form>
+		<div class="clearfix"></div>
+
+		<div class="col-sm-12">
+			<button class="btn btn-primary" (click)="onChangesDemo()">ngOnChanges demo</button>
+			<button class="btn btn-danger" (click)="onDestroyDemo()" style="margin-left:10px;">ngOnDestroy demo</button>
+		</div>
+
+		<div class="clearfix"></div>
+
+		<app-comp-comm-display-form 
+			*ngFor="let serverElement of serverElements"
+			[aliasForInput]="serverElement"
+			[name]="serverElement.name"
+		>
+			<p #contentChildDemo>
+			  <strong *ngIf="serverElement.type == 'Server'" style="color:red"> 
+			  	{{ serverElement.desc }} 
+			  </strong> 
+				<em *ngIf="serverElement.type == 'Blueprint'" style="color:blue">
+				  {{ serverElement.desc }}
+				</em> 
+			</p>
+		</app-comp-comm-display-form>
+
+	</div>
+</div>
+
+
+
+
+
+<!-- <div class="container" style="margin-top: 30px;">
+	<div class="row">
+		<div class="col-sm-6">
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<form action="">
+						<div class="form-group">
+							<label for="name">Name</label>
+							<input type="text" name="name" id="name" class="form-control" value="" #name>
+						</div>
+						<div class="form-group">
+							<label for="desc">Description</label>
+							<input type="text" name="desc" id="desc" class="form-control" value="" #description>
+						</div>
+						<button class="btn btn-primary m-r-10" (click)="addServer(name.value, description.value)">Add Server</button>
+						<button class="btn btn-primary m-r-10" (click)="addBlueprint(name.value, description.value)">Add Blueprint</button>
+					</form>
+				</div>
+			</div>
+		</div>
+
+		<div class="clearfix"></div>
+		<hr>
+
+		<div class="col-sm-6 m-t-15" *ngIf="showServerDetail">
+			<div class="panel panel-default m-t-15">
+				<div class="panel-heading">
+					{{ serverName }}
+				</div>
+				<div class="panel-body">
+					<p> {{ serverDescription }} </p>
+				</div>
+			</div>
+		</div>
+
+		<div class="clearfix"></div>
+
+		<div class="col-sm-6 m-t-15" *ngIf="showBlueprintDetail">
+			<div class="panel panel-default m-t-15">
+				<div class="panel-heading">
+					{{ blueprintName }}
+				</div>
+				<div class="panel-body">
+					<p> {{ blueprintDescription }} </p>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div> -->

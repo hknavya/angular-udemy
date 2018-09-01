@@ -1,0 +1,30 @@
+<div class="col-sm-6">
+	<div class="panel panel-default">
+		<div class="panel-body">
+			<form action="">
+				<div class="form-group">
+					<label for="name">Name</label>
+					<input 
+						type="text" 
+						name="name" 
+						id="name" 
+						class="form-control" 
+						[(ngModel)]= "newElementName"
+						>
+				</div>
+				<div class="form-group">
+					<label for="desc">Description</label>
+					<input 
+						type="text" 
+						name="desc" 
+						id="desc" 
+						class="form-control" 
+						[(ngModel)]="newElementDescription"
+					>
+				</div>
+				<button class="btn btn-primary m-r-10" (click)="addServerButton()">Add Server</button>
+				<button class="btn btn-primary m-r-10" (click)="addBlueprintButton()">Add Server Blueprint</button>
+			</form>
+		</div>
+	</div>
+</div>

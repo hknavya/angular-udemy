@@ -1,0 +1,10 @@
+<div *ngIf="allowEdit == false" style="text-align:center;margin-top: 50px;">
+	<h4>You don't have permission to edit this</h4>
+</div>
+
+<div class="well" *ngIf="allowEdit == true">
+	<p> {{selectedServer.id}} - {{selectedServer.name}} - {{selectedServer.location}} </p>
+	<hr>
+	<button class="btn btn-primary" (click)="onEditServer(selectedServer)">Edit Server</button>
+	<!-- <app-serversss-edit [selectedServer]="selectedServer"></app-serversss-edit> -->
+</div>

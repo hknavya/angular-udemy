@@ -1,0 +1,33 @@
+<div class="container">
+	<div class="row">
+		<div class="col-sm-12">
+			<h2 class="m-l-10">IO component</h2>
+
+			<div class="well">
+				<app-io-first (firstButton)="showData()" (toggleEvent)="showData($event)"></app-io-first>
+				<app-io-second [sidebarBlock]="sidebar"></app-io-second>
+				<!-- <app-io-second [innerSidebarBlock]="sidebar"></app-io-second> -->
+				<!-- <div class="sidebar" *ngIf="dummyContent">
+					<p>Some sidebar content goes here</p>
+				</div> -->
+			</div>
+			<div class="well">
+				<app-io-one (sidebarLists)="innerSidebarContent()"></app-io-one>
+				<app-io-two [innerSidebarBlock]="innerSidebar"></app-io-two>
+			</div>
+
+			<div style="border: 2px solid #ccc;padding:20px;margin:20px;">
+				<button routerLink="/nested-io">Nested IO</button>
+				<button routerLink="/general">General</button>
+			</div>
+
+			<hr>
+
+			<app-binding></app-binding>
+
+			<hr>
+
+			<app-inbuilt-directive></app-inbuilt-directive>
+		</div>
+	</div>
+</div>

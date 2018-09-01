@@ -1,0 +1,8 @@
+<h3 class="page-header">Servers</h3>
+<ul class="list-group">
+	<app-routing-server *ngFor="let server of servers" [server]="server"></app-routing-server>
+</ul>
+<br> <br>
+<app-routing-server-detail [serv]="selectedServer"></app-routing-server-detail>
+
+<app-routing-server-edit [editServer]="selectedServer" (editServ)="updateServer($event)"></app-routing-server-edit>

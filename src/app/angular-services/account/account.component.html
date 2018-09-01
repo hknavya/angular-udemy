@@ -1,0 +1,11 @@
+<div class="panel panel-default">
+	<div class="panel-body">
+		<h4> {{account.name}} </h4>
+		<p> The account status changed to - <strong style="text-transform:uppercase;"> {{account.status}} </strong> </p>
+		<div class="m-t-15">
+			<button class="btn btn-success pull-left m-r-10" (click)="onSet('active')"> Active </button>
+			<button class="btn btn-danger pull-left m-r-10" (click)="onSet('in-active')"> In active </button>
+			<button class="btn btn-primary pull-left m-r-10" (click)="onSet('hidden')"> Hidden </button>
+		</div>
+	</div>
+</div>

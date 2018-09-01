@@ -1,0 +1,12 @@
+<p>
+  binding works!
+</p>
+<button class="btn btn-primary" [disabled]="!makeBtnEnable">Button</button>
+<p>{{makeBtnEnable}}</p>
+<p [innerText]="makeBtnEnable"></p>
+
+<hr>
+
+<input type="text" [(ngModel)]="username" class="form-control">
+<p>{{username}}</p>
+<button class="btn btn-primary" (click)="onReset()" [disabled]="username == ''">Reset Username</button>

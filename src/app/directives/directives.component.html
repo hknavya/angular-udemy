@@ -1,0 +1,29 @@
+<div class="container m-t-15">
+	<div class="row">
+		<div class="col-sm-12">
+			<button class="btn btn-primary" (click)="onShowNumbers()">Show Odd/Even Numbers</button>
+			<ul class="list-group m-t-15" 
+			*ngIf="showNumbers"
+			[class.even]="EvenNumbers">
+				<li class="list-group-item" 
+					*ngFor="let even of EvenNumbers"
+					[ngStyle]="{backgroundColor: even ? '#ccc' : 'white'}">
+						{{even}}
+				</li>
+			</ul>
+			<ul class="list-group m-t-15" 
+			*ngIf="!showNumbers"
+			[class.odd]="OddNumbers">
+				<li class="list-group-item" 
+				*ngFor="let odd of OddNumbers"
+				[ngStyle]="{backgroundColor: odd ? '#eee' : 'white'}">
+					{{odd}}
+				</li>
+			</ul>
+		</div>
+		<div class="col-sm-12 paragraphs">
+			<p appBasicDirective>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam eius provident atque eveniet maiores delectus quod cupiditate, nemo fuga. Pariatur omnis velit, iste soluta voluptatem. Hic inventore dolor est pariatur!</p>
+			<p appBetterDirective defaultColor="brown" hoverColor="white"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil magnam ratione id beatae minima sunt iusto quisquam voluptates quidem quibusdam? Veritatis provident consequuntur animi quaerat doloremque, suscipit voluptatum accusamus vel.</p>
+		</div>
+	</div>
+</div>

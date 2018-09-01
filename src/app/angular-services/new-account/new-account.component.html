@@ -1,0 +1,21 @@
+<div class="panel panel-default">
+	<div class="panel-body">
+		<form action="">
+			<div class="form-group">
+				<label for="">Account Name</label>
+				<input type="text" name="acc_name" id="acc_name" class="form-control" #accName>
+			</div>
+			<div class="form-group">
+				<label for="">Account Status</label>
+				<select name="acc_status" id="acc_status" class="form-control" #accStatus>
+					<option selected></option>
+					<option>Active</option>
+					<option>In-active</option>
+					<option>Hidden</option>
+				</select>
+			</div>
+			<button class="btn btn-primary pull-right m-l-10" (click)="resetData()"> Reset </button>
+			<button class="btn btn-success pull-right m-l-10" (click)="onSave(accName.value, accStatus.value)"> Save </button>
+		</form>
+	</div>
+</div>

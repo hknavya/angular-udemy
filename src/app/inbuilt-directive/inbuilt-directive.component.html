@@ -1,0 +1,26 @@
+<p>
+  inbuilt-directive works!
+</p>
+<button class="btn btn-primary" (click)="toggle()">Toggle Display</button>
+<p *ngIf="toggleContent">Some Testing Content</p>
+<div 
+	*ngFor="let list of lists"
+	[ngStyle]="{'background-color' : applyBgColor(list)}"
+	[class.textWhite]="list >= 5"
+>
+	<p>{{list}}</p>
+</div>
+
+<!-- [ngStyle]="{'background-color' : list >= 5 ? 'blue' : 'transparent'}"
+[ngStyle]="{'background-color' : applyBgColor()}" -->
+
+<br><br>
+
+<button class="btn btn-primary mt" (click)="showDate()"> Button </button>
+<div 
+	*ngFor="let date of dates let i=index"
+	[ngStyle]="{backgroundColor: i >= 4 ? 'dodgerblue' : 'transparent'}"
+	[class.textWhite]="i >= 4"
+> 
+	<p>{{date}}</p>
+</div>

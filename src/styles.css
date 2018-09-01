@@ -1,0 +1,69 @@
+/* You can add global styles to this file, and also import other style files */
+a {
+	cursor: pointer;
+}
+button {
+	display: inline-block;
+	background: #ccc;
+	padding: 10px;
+	cursor: pointer;
+	margin: 10px;
+}
+.sidebar {
+	box-sizing: border-box;
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 300px;
+	height: 100%;
+	padding: 20px 10px;
+	background: #ccc;
+}
+.odd {
+	color: #f00;
+	font-weight: bold;
+}
+.even {
+	color: #00f;
+	font-weight: bold;
+}
+.m-l-10 {
+	margin-left: 10px;
+}
+.m-r-10 {
+	margin-right: 10px;
+}
+.m-t-15 {
+	margin-top: 15px;
+}
+.m-b-10 {
+	margin-bottom: 10px;
+}
+.m-b-0 {
+	margin-bottom: 0px !important;
+}
+.m-r-0 {
+	margin-right: 0px !important;
+}
+.p-r-0 {
+	padding-right: 0 !important;
+}
+.paragraphs p {
+	padding: 10px;
+	border-radius: 7px;
+}
+.show .dropdown-menu {
+	display: block;
+}
+.tabs li a.active {
+	color: #000 !important;
+	font-weight: bold;
+	font-style: italic;
+}
+.list-group-item.active a,
+.list-group-item.active:hover a {
+	color: #fff;
+}
+.form-group label {
+	padding-top: 8px;
+}

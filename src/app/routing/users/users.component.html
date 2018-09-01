@@ -1,0 +1,16 @@
+<h3>Users</h3>
+<ul class="list-group">
+	<app-routing-user *ngFor="let user of users" [user]="user" (clickedUser)="onSelectedUser($event)"></app-routing-user>
+</ul>
+<a routerLink="users" class="btn btn-primary">Users page</a> <br><br>
+
+<app-routing-user-detail 
+	[user]="selectedUser" 
+	*ngIf="selectedUser; else showText"
+>
+</app-routing-user-detail>
+<ng-template #showText>
+	<div class="well">
+		<h4 style="font-weight: 200;text-align: center;letter-spacing: 2px;">Please select a User</h4>
+	</div>
+</ng-template>

@@ -1,0 +1,9 @@
+<p>
+  nested-io works!
+</p>
+
+<!-- <app-nested-io-one (ioToggle)=ioSidebar($event)></app-nested-io-one> -->
+
+<app-nested-io-one (nestedIoToggleButton)=nestedIoSidebar($event)></app-nested-io-one>
+<app-nested-io-two [sidebarContent]="sidebar"></app-nested-io-two>
+<!-- <app-nested-two [innerSidebarContent]="sidebar"></app-inner-two> -->
