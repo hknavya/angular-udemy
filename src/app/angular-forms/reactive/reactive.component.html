@@ -1,0 +1,89 @@
+<div class="container">
+	<div class="row">
+		<div class="col-sm-6">
+			<h3 class="page-header">Reactive Form</h3>
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<form [formGroup]="reactiveForm" (ngSubmit)="onSubmit()">
+						<div class="form-group">
+							<label for="username">Username</label>
+							<input type="text" name="username" class="form-control" formControlName="username">
+							<div class="help-block red" *ngIf="!reactiveForm.get('username').valid && reactiveForm.get('username').touched">Please enter Username!</div>
+						</div>
+						<div formGroupName="loginData">
+							<div class="form-group">
+								<label for="email">Email</label>
+								<input type="text" name="email" class="form-control" formControlName="email">
+								<div class="help-block red" *ngIf="!reactiveForm.get('loginData.email').valid && reactiveForm.get('loginData.email').touched">
+									Please enter vail Email!
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="password">Password</label>
+								<input type="text" name="password" class="form-control" formControlName="password">
+								<div class="help-block red" *ngIf="!reactiveForm.get('loginData.password').valid && reactiveForm.get('loginData.password').touched">
+									Please enter Password!
+								</div>
+							</div>
+						</div>
+						<div class="radio" *ngFor="let gender of genders">
+							<label>
+								<input type="radio" name="gender" value="{{gender}}" formControlName="gender"> {{gender}}
+							</label>
+						</div>
+
+
+						<div formArrayName="hobbies" class="m-t-10 m-b-10">
+							<h4>Your hobbies</h4>
+							<button class="btn btn-default m-b-10" type="button" (click)="onAddHobby()">Add hobby</button>
+							<div class="form-group" *ngFor="let hobby of reactiveForm.get('hobbies').controls; let i=index ">
+								<input type="text" class="form-control m-t-10" placeholder="Enter your Hobby" [formControlName]="i">
+							</div>
+						</div>
+
+						<div class="help-block red" *ngIf="!reactiveForm.valid && reactiveForm.touched">Invalid Form data!!</div>
+						<button type="submit" class="btn btn-primary m-t-15" [disabled]="!reactiveForm.valid">Submit</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	
+		<div class="col-sm-6">
+			<h3 class="page-header">Practice</h3>
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<form [formGroup]="practiceForm" (ngSubmit)="onPracticeFormSubmit()">
+						<div class="form-group">
+							<label for="project">Project</label>
+							<input type="text" name="project" class="form-control" formControlName="projectName">
+							<div class="help-block red" *ngIf="!practiceForm.get('projectName').valid && practiceForm.get('projectName').touched">
+								<span *ngIf="practiceForm.get('projectName').errors['invalidProjectName']">
+									Please enter valid Project name
+								</span>
+								<span *ngIf="practiceForm.get('projectName').errors['required']">
+									This field is required
+								</span>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="email">Email</label>
+							<input type="text" name="email" class="form-control" formControlName="email">
+							<div class="help-block red" *ngIf="!practiceForm.get('email').valid && practiceForm.get('email').touched">
+								Please enter Email!
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="status">Status</label>
+							<select name="status" id="status" class="form-control" formControlName="status">
+								<option value="stable">Stable</option>
+								<option value="critical">Critical</option>
+								<option value="finished">Finished</option>
+							</select>
+						</div>
+						<button class="btn btn-primary" type="submit">Submit</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

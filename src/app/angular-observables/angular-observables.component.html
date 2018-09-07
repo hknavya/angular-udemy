@@ -12,12 +12,12 @@
 			        </li>
 			        <li>
 			          <a href="javascript:void(0)" routerLink="user/1" routerLinkActive="active">
-			            User 1
+			            User 1 {{user1Activated ? '(activated)' : ''}}
 			          </a>
 			        </li>
 			        <li>
 			          <a href="javascript:void(0)" routerLink="user/2" routerLinkActive="active">
-			            User 2
+			            User 2 {{user2Activated ? '(activated)' : ''}}
 			          </a>
 			        </li>
 			        <!-- routerLink="users" and [routerLink]="['users']"  both are same -->

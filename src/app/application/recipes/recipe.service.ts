@@ -50,4 +50,9 @@ export class RecipeService {
 	capitalizeFirstLetter(string) {
 		return string.charAt(0).toUpperCase() + string.slice(1);
 	}
+
+	getRecipe(id) {
+		console.log(id, "idd");
+		return this.recipes[id];
+	}
 }

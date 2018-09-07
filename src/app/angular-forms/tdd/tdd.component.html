@@ -1,0 +1,92 @@
+<div class="container">
+	<div class="row">
+		<h3 class="page-header">Template Driven Form</h3>
+		<div class="col-sm-12">
+			<div class="row">
+				<div class="col-sm-6">
+					<div class="panel panel-default">
+						<div class="panel-body">
+							<form (ngSubmit)="onSubmit(myForm)" #myForm="ngForm">
+							<!-- 'ngNativeValidate' enables the HTML5 validation, just bt adding to 'form' -->
+								<div class="form-group">
+									<label for="name">Name</label>
+									<input type="text" name="name" class="form-control" ngModel required>
+								</div>
+								<div class="form-group">
+									<button class="btn btn-default" type="button" (click)="suggestedName()">Suggested Name</button>
+								</div>
+								<div class="form-group">
+									<label for="email">Email</label>
+									<input type="text" name="email" class="form-control" ngModel required email #emailRef="ngModel"> 
+									<!-- Here 'email' validates the email id which user has entered -->
+									<div class="help-block red" *ngIf="!emailRef.valid && emailRef.touched">Please enter valid Email!</div>
+								</div>
+								<div class="form-group">
+									<label for="question">Secrete question</label>
+									<select name="question" id="question" class="form-control" [ngModel]="defaultQuestion">
+										<option value="pet">What is your fav pet?</option>
+										<option value="teacher">Who is your first teacher?</option>
+									</select>
+								</div>
+								<div class="radio" *ngFor="let gender of genders">
+									<label for="{{gender}}">
+										<input type="radio" name="gender" value="{{gender}}" [ngModel]="genders[0]"> {{gender}}
+									</label>
+								</div>
+								<button type="submit" class="btn btn-primary" [disabled]="!myForm.valid">Submit</button>
+							</form>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-6">
+					<div class="well" *ngIf="userData">
+						<h3 class="page-header">Your Data</h3>
+						<p>Name: {{userDetail.name}}</p>
+						<p>Email: {{userDetail.email}}</p>
+						<p>Question: {{userDetail.question}}</p>
+						<p>Gender: {{userDetail.gender}}</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<hr> <hr>
+		<div class="col-sm-12">
+			<div class="row">
+				<div class="col-sm-6">
+					<div class="well">
+						<h5 class="red" *ngIf="!practiseForm.valid && practiseForm.touched">The Form is Invalid</h5>
+						<form (ngSubmit)="onFormSubmit(practiseForm)" #practiseForm="ngForm">
+							<div class="form-group">
+								<label for="email">Email</label>
+								<input type="text" name="email" class="form-control" ngModel email required #checkEmail="ngModel">
+								<div class="help-block red" *ngIf="!checkEmail.valid && checkEmail.touched">Please enter valid Email</div>
+							</div>
+							<div class="form-group">
+								<label for="email">Subscription</label>
+								<select name="subscription" id="subscription" class="form-control" [ngModel]="selectedOption">
+									<option value="basic">Basic</option>
+									<option value="advanced">Advanced</option>
+									<option value="pro">Pro</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<label for="password">Password</label>
+								<input type="password" name="password" class="form-control" ngModel required #checkPwd="ngModel">
+								<div class="help-block red" *ngIf="!checkPwd.valid && checkPwd.touched">Please enter Password</div>
+							</div>
+							<button type="submit" class="btn btn-primary" [disabled]="!practiseForm.valid">Submit</button>
+						</form>
+					</div>
+				</div>
+				<div class="col-sm-6">
+					<div class="well">
+						<h3 class="page-header">User data</h3>
+						<p>Email: {{secondUserData.email}}</p>
+						<p>Subscription: {{secondUserData.subscription}}</p>
+						<p>Password: {{secondUserData.password}}</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

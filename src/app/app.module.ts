@@ -4,6 +4,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { RouterModule } from "@angular/router";
 import { AppRoutingModule } from "./app.routing";
 import { FormsModule } from "@angular/forms";
+import { ReactiveFormsModule } from "@angular/forms";
 
 import { AppComponent } from "./app.component";
 import { IoComponent } from "./io/io.component";
@@ -73,6 +74,10 @@ import { AngularObservablesComponent } from "./angular-observables/angular-obser
 import { ObsHomeComponent } from "./angular-observables/obs-home/obs-home.component";
 import { ObsUserComponent } from "./angular-observables/obs-user/obs-user.component";
 import { ObsUserService } from "./angular-observables/obs-user/obs-user.service";
+import { ObservableUserService } from "./angular-observables/observable-user.service";
+import { AngularFormsComponent } from "./angular-forms/angular-forms.component";
+import { AngularFormsTddComponent } from "./angular-forms/tdd/tdd.component";
+import { ReactiveFormsComponent } from "./angular-forms/reactive/reactive.component";
 
 @NgModule({
 	declarations: [
@@ -140,13 +145,17 @@ import { ObsUserService } from "./angular-observables/obs-user/obs-user.service"
 		PageNotFoundComponent,
 		AngularObservablesComponent,
 		ObsHomeComponent,
-		ObsUserComponent
+		ObsUserComponent,
+		AngularFormsComponent,
+		AngularFormsTddComponent,
+		ReactiveFormsComponent
 	],
 	imports: [
 		BrowserModule,
 		AppRoutingModule,
 		BrowserAnimationsModule,
-		FormsModule
+		FormsModule,
+		ReactiveFormsModule
 	],
 	providers: [],
 	bootstrap: [AppComponent]

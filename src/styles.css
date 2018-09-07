@@ -67,3 +67,6 @@ button {
 .form-group label {
 	padding-top: 8px;
 }
+.red {
+	color: #f00 !important;
+}

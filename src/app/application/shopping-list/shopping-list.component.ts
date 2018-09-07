@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Input } from "@angular/core";
 import { Ingredient } from "../shared/ingredient.model";
 import { ShoppingService } from "./shopping.service";
 
@@ -21,5 +21,10 @@ export class ShoppingListComponent implements OnInit {
 		this.shoppingService.inputIngredient.subscribe((ingredient: Ingredient) => {
 			this.shoppingService.addItem(ingredient);
 		});
+	}
+
+	onEditList(index) {
+		this.shoppingService.startedEditing.next(index);
+		// 'startedEditing' is the Observable here, defined in shopping.service
 	}
 }

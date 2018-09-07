@@ -4,7 +4,7 @@
 	</div>
 	<div class="col-sm-4">
 		<ul class="list-group">
-			<li class="list-group-item" *ngFor="let ingredient of ingredients">
+			<li class="list-group-item" *ngFor="let ingredient of ingredients; let i=index " (click)="onEditList(i)">
 				<a>
 					{{ingredient.name}} - {{ingredient.amount}}
 				</a>

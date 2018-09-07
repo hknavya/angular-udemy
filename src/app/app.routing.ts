@@ -41,6 +41,9 @@ import { AuthGuardService } from "./auth-guard.service";
 import { AngularObservablesComponent } from "./angular-observables/angular-observables.component";
 import { ObsHomeComponent } from "./angular-observables/obs-home/obs-home.component";
 import { ObsUserComponent } from "./angular-observables/obs-user/obs-user.component";
+import { AngularFormsComponent } from "./angular-forms/angular-forms.component";
+import { AngularFormsTddComponent } from "./angular-forms/tdd/tdd.component";
+import { ReactiveFormsComponent } from "./angular-forms/reactive/reactive.component";
 
 const routes: Routes = [
 	{
@@ -114,6 +117,14 @@ const routes: Routes = [
 		children: [
 			{ path: "home", component: ObsHomeComponent },
 			{ path: "user/:id", component: ObsUserComponent }
+		]
+	},
+	{
+		path: "ang-forms",
+		component: AngularFormsComponent,
+		children: [
+			{ path: "tdd", component: AngularFormsTddComponent },
+			{ path: "reactive", component: ReactiveFormsComponent }
 		]
 	},
 	{ path: "**", component: PageNotFoundComponent }
