@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Router, ActivatedRoute, Params } from "@angular/router";
-import { FormGroup, FormControl, FormArray, Validators } from "@angular/forms";
+import { FormGroup, FormControl, FormArray } from "@angular/forms";
 import { RecipeService } from "../recipe.service";
 
 @Component({
@@ -32,7 +32,7 @@ export class RecipesEditComponent implements OnInit {
 
 	private initForm() {
 		let name = "";
-		let description = "";
+		let desc = "";
 		let imagePath = "";
 		let ingredients = new FormArray([]);
 
@@ -41,22 +41,16 @@ export class RecipesEditComponent implements OnInit {
 			console.log(recipe, recipe.name);
 
 			name = recipe.name;
-			description = recipe.description;
+			desc = recipe.description;
 			imagePath = recipe.imagePath;
 			console.log(recipe.ingredients, recipe["ingredients"]);
 			if (recipe.ingredients) {
-				for (let ingredient of recipe.ingredients) {
-					console.log(ingredient, "ing");
+				for (let ingr of recipe.ingredients) {
+					console.log(ingr, "ing");
 					ingredients.push(
 						new FormGroup({
-							ingredientName: new FormControl(
-								ingredient.name,
-								Validators.required
-							),
-							ingredientAmount: new FormControl(ingredient.amount, [
-								Validators.required,
-								Validators.pattern(/^[1-9]+[0-9]*$/)
-							])
+							ingrName: new FormControl(ingr.name),
+							ingrAmount: new FormControl(ingr.amount)
 						})
 					);
 				}
@@ -64,32 +58,22 @@ export class RecipesEditComponent implements OnInit {
 		}
 
 		this.recipeForm = new FormGroup({
-			name: new FormControl(name, Validators.required),
-			description: new FormControl(description, Validators.required),
-			imagePath: new FormControl(imagePath, Validators.required),
+			name: new FormControl(name),
+			desc: new FormControl(desc),
+			imagePath: new FormControl(imagePath),
 			ingredients: ingredients // 37th line
 		});
 	}
 
 	onRecipeSubmit() {
-		// console.log(this.recipeForm);
-		if (this.editMode) {
-			// const newRecipe = new Recipe()
-			this.recipeService.updateRecipe(this.id, this.recipeForm.value);
-			// console.log(this.id, JSON.stringify(this.recipeForm.value), "abc");
-		} else {
-			this.recipeService.addRecipe(this.recipeForm.value);
-		}
+		console.log(this.recipeForm);
 	}
 
 	onAddIngredient() {
-		(<FormArray>this.recipeForm.get("ingredients")).push(
+		this.recipeForm.get("ingredients").push(
 			new FormGroup({
-				ingredientName: new FormControl(null, Validators.required),
-				ingredientAmount: new FormControl(null, [
-					Validators.required,
-					Validators.pattern(/^[1-9]+[0-9]*$/)
-				])
+				ingrName: new FormControl(),
+				ingrAmount: new FormControl()
 			})
 		);
 	}

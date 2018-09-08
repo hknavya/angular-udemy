@@ -1,0 +1,26 @@
+<div class="row">
+	<div class="col-sm-12">
+		<form (ngSubmit)="addIngredient(ingForm)" #ingForm="ngForm">
+			<div class="row">
+				<div class="col-sm-8 form-group">
+					<label for="name">Name</label>
+					<input type="text" id="name" name="name" class="form-control" required ngModel #ingName="ngModel">
+					<div class="help-block red" *ngIf="!ingName.valid && ingName.touched">Please enter Name!</div>
+				</div>
+				<div class="col-sm-4 form-group">
+					<label for="amount">Amount</label>
+					<input type="text" name="amount" id="amount" class="form-control" required ngModel #ingAmount="ngModel" pattern="^[1-9]+[0-9]*$">
+					<div class="help-block red" *ngIf="!ingAmount.valid && ingAmount.touched">Please enter Amount!</div>
+				</div>
+				<div class="col-sm-12">
+					<button class="btn btn-success m-r-10" type="submit" [disabled]="!ingForm.valid">
+						<span *ngIf="editIngredientMode">Update</span>
+						<span *ngIf="!editIngredientMode">Add</span>
+					</button>
+					<button class="btn btn-primary m-r-10" type="button" (click)="clearIngredient()">Clear</button>
+					<button class="btn btn-danger m-r-10" type="button" (click)="deleteIngredient()" *ngIf="editIngredientMode"> Delete </button>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

@@ -7,8 +7,8 @@
 					<input type="text" name="name" class="form-control" formControlName="name">
 				</div>
 				<div class="form-group">
-					<label for="description">Description</label>
-					<textarea name="description" id="description" cols="30" rows="10" class="form-control" formControlName="description"></textarea>
+					<label for="desc">Description</label>
+					<textarea name="desc" id="desc" cols="30" rows="10" class="form-control" formControlName="desc"></textarea>
 				</div>
 				<div class="form-group">
 					<label for="imagePath">ImagePath</label>
@@ -19,14 +19,14 @@
 						<div class="row" *ngFor="let ingredientCtrl of recipeForm.get('ingredients').controls; let i=index " [formGroupName]="i">
 							<div class="col-sm-7">
 								<div class="form-group">
-									<label for="ingredientName">Ingredient Name</label>
-									<input type="text" name="ingredientName" class="form-control" formControlName="ingredientName">
+									<label for="ingrName">Ingredient Name</label>
+									<input type="text" name="ingrName" class="form-control" formControlName="ingrName">
 								</div>
 							</div>
 							<div class="col-sm-3">
 								<div class="form-group">
-									<label for="ingredientAmount">Ingredient Amount</label>
-									<input type="text" name="ingredientAmount" class="form-control" formControlName="ingredientAmount">
+									<label for="ingrAmount">Ingredient Amount</label>
+									<input type="text" name="ingrAmount" class="form-control" formControlName="ingrAmount">
 								</div>
 							</div>
 							<div class="col-sm-2" style="margin-top:30px;">
@@ -37,7 +37,7 @@
 					</div>
 				</div>
 				<hr>
-				<button class="btn btn-primary m-r-10" type="submit" [disabled]="!recipeForm.valid">Save</button>
+				<button class="btn btn-primary m-r-10" type="submit">Save</button>
 				<button class="btn btn-default" type="button">Cancel</button>
 			</form>
 		</div>
