@@ -79,4 +79,19 @@ export class RecipeService {
 	addRecipe(recipe) {
 		this.recipes.push(recipe);
 	}
+
+	deleteRecipe(selectedRecipeId) {
+		// console.log(
+		// 	selectedRecipe,
+		// 	this.recipes,
+		// 	this.recipes[selectedRecipe],
+		// 	"delete recipe"
+		// );
+		// let deletedRecipe = this.recipes[selectedRecipe];
+		// console.log(deletedRecipe, "deletedRecipe");
+		this.recipes.splice(selectedRecipeId, 1);
+		// console.log(this.recipes, "recipes");
+		// delete this.recipes[selectedRecipe];
+		// console.log(this.recipes, "recipes");
+	}
 }

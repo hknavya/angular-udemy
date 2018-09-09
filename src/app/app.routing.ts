@@ -44,6 +44,7 @@ import { ObsUserComponent } from "./angular-observables/obs-user/obs-user.compon
 import { AngularFormsComponent } from "./angular-forms/angular-forms.component";
 import { AngularFormsTddComponent } from "./angular-forms/tdd/tdd.component";
 import { ReactiveFormsComponent } from "./angular-forms/reactive/reactive.component";
+import { AngularPipesComponent } from "./angular-pipes/angular-pipes.component";
 
 const routes: Routes = [
 	{
@@ -127,6 +128,7 @@ const routes: Routes = [
 			{ path: "reactive", component: ReactiveFormsComponent }
 		]
 	},
+	{ path: "ang-pipes", component: AngularPipesComponent },
 	{ path: "**", component: PageNotFoundComponent }
 ];
 

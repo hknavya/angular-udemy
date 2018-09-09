@@ -34,6 +34,11 @@ export class DetailComponent implements OnInit {
 		// });
 	}
 
+	onDeleteRecipe() {
+		this.recipeService.deleteRecipe(this.recipeId);
+		this.router.navigate(["../"], { relativeTo: this.activatedRoute });
+	}
+
 	ngOnInit() {
 		this.activatedRoute.params.subscribe((params: Params) => {
 			this.recipeId = +params["id"];

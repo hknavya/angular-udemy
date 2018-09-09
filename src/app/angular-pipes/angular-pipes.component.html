@@ -1,0 +1,19 @@
+<div class="container">
+	<div class="row">
+		<div class="col-sm-6 m-t-15">
+			<h3 class="page-header">Server lists</h3>
+			<br>
+			<button class="btn btn-primary" (click)="onAddServer()">Add Server</button>
+			<hr>
+			<h4> App status : {{ appStatus | async }}</h4>
+			<hr>
+			<p> Filter : <input type="text" class="form-control" [(ngModel)]="serverFilter"> </p>
+			<hr>
+			<ul class="list-group">
+				<li class="list-group-item" *ngFor="let list of lists | filter:serverFilter | sort">
+					{{list.name}} - {{list.status}} - {{list.type}}
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>

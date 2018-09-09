@@ -78,6 +78,9 @@ import { ObservableUserService } from "./angular-observables/observable-user.ser
 import { AngularFormsComponent } from "./angular-forms/angular-forms.component";
 import { AngularFormsTddComponent } from "./angular-forms/tdd/tdd.component";
 import { ReactiveFormsComponent } from "./angular-forms/reactive/reactive.component";
+import { AngularPipesComponent } from './angular-pipes/angular-pipes.component';
+import { FilterPipe } from './angular-pipes/filter.pipe';
+import { SortPipe } from './angular-pipes/sort.pipe';
 
 @NgModule({
 	declarations: [
@@ -148,7 +151,10 @@ import { ReactiveFormsComponent } from "./angular-forms/reactive/reactive.compon
 		ObsUserComponent,
 		AngularFormsComponent,
 		AngularFormsTddComponent,
-		ReactiveFormsComponent
+		ReactiveFormsComponent,
+		AngularPipesComponent,
+		FilterPipe,
+		SortPipe
 	],
 	imports: [
 		BrowserModule,
